@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+	<html lang="en">
+  		<head>
+    		<meta charset="utf-8">
+    		<title>Arduino serialport</title>
+  </head>
+  <body>
+    <div>
+    	<p>valeur analogique <span id="val">0<span></p>
+    </div>
+  </body>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  	var socket = io('http://localhost:3000');
+  	socket.on('getValue', function (data) {
+    	console.log(data);
+    	document.getElementById('val').innerHTML=data;
+  	});
+</script>
+</html>
